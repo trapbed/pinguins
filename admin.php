@@ -1,7 +1,7 @@
 <?php
     require "connect.php";
 
-    $query = mysqli_query($con, "SELECT title, publish_date, categories.name FROM `news` JOIN categories on news.category_id=categories.category_id order by news.category_id;");
+    $query = mysqli_query($con, "SELECT title, publish_date, categories.name, image FROM `news` JOIN categories on news.category_id=categories.category_id order by news.category_id;");
     $allNews = mysqli_fetch_all($query);
 
 
@@ -135,7 +135,6 @@
             <a href="#">образование</a>
         </div>
     </nav>
-
     <div id="allNews">
         <p id="weNews">Наши новости</p>
         <table>
@@ -143,12 +142,14 @@
             <tr id='headTable'>
                 <td>Заголовок</td>
                 <td>Дата публикации</td>
-                <td id='last'>Категория</td>
+                <td >Категория</td>
+                <td id='last'>Изображение</td>
             </tr>
         
+            
             <?php
                 foreach($allNews as $news){
-                    echo "<tr> <td>$news[0]</td> <td>$news[1]</td> <td id='last'>$news[2]</td> </tr>";
+                    echo "<tr> <td>$news[0]</td> <td>$news[1]</td> <td >$news[2]</td> <td id='last'> <img src='images/pinguin/$news[3]'></td> </tr>";
                 }
             ?>
         </table>

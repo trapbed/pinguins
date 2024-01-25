@@ -249,3 +249,10 @@ td{
 table:last-child{
     border-bottom: transparent;
 }
+img{
+    width: 10vmax;
+}
+
+#weatherImg{
+    width: 1.2vmax;
+}
