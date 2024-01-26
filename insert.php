@@ -13,6 +13,7 @@
             if(mb_strlen($postP)<=20 && $postP!=="" &&  $postTxt!=="" && $postImg['type']==$i){
                 $query_insert = "insert into news (`image`, `title`, `content`, `category_id`) VALUES ('$postImg[name]', '$postP', '$postTxt', $postCat)";
                 $insert = mysqli_query($con, $query_insert);
+                echo "<h1>Ваша новость была отправлена !</h1>";
             }
             else{
                 echo "<h1>Ваша новсть не отправлена по причинам :<br></h1>";
