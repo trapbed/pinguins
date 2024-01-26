@@ -15,11 +15,12 @@
                 $insert = mysqli_query($con, $query_insert);
             }
             else{
+                echo "<h1>Ваша новсть не отправлена по причинам :<br></h1>";
                 if(mb_strlen($postP)>20 ){
                     echo "Слишком длинный заголовок <br>";
                 }
                 if($postP==""){
-                    echo "Пустой заголовок";
+                    echo "Пустой заголовок <br>";
                 }
                 if(mb_strlen($postTxt)>20 ){
                     echo "Слишком длинный текст заголовка <br>";
@@ -28,7 +29,7 @@
                     echo "Пустой текст новости <br>";
                 } 
                 if ($postImg['type']!==$i){
-                    echo "Это не изображение";
+                    echo "Это не изображение <br>";
                 }
             }
             break;
