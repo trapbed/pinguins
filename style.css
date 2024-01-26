@@ -242,6 +242,7 @@ td{
     height: 2vmax;
     font-family: 'Lato-Reg';
     font-size: 1vmax;
+    padding-left: 2vmax;
 }
 #last{
     border-right: transparent;

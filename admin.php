@@ -4,7 +4,6 @@
     $query = mysqli_query($con, "SELECT title, publish_date, categories.name, image FROM `news` JOIN categories on news.category_id=categories.category_id order by news.category_id;");
     $allNews = mysqli_fetch_all($query);
 
-
 ?>
 
 <!DOCTYPE html>
@@ -40,7 +39,7 @@
             </div>
         </div>
         <hr id="hrHead">
-    </div>
+    </div> 
 
     <div id="titleNWeather">
         <div id="inTitle">

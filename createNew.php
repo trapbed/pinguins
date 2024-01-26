@@ -124,7 +124,7 @@
     </nav>
 
     <p id="headerTxt">Создайте новость</p>
-    <form action="createNewValid.php" method="POST" enctype="multipart/form-data">
+    <form action="insert.php" method="POST" enctype="multipart/form-data">
         <label for="imagePost">Изображение :</label>
         <input type="file" id="imagePost" name="imagePost">
         <br>
@@ -136,9 +136,8 @@
         <br>
         <label for="categoryId">Категория :</label>
         <select name="categoryId" id="categoryId">
-            <option value="first">Первая</option>
-            <option value="second">Вторая</option>
-            <option value="third">Третья</option>
+            <option value="1">Питание</option>
+            <option value="2">Содержание</option>
         </select>
         <br>
         <input type="submit" id="submitBtn" value="Отправить">
