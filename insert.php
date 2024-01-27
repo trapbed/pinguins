@@ -6,11 +6,11 @@
 
     include "connect.php"; //выражение include включает и выполняет указанный файл
 
-    $types=['image/png', 'image/jpg', 'image/jpeg'];
+    $types=['image/png', 'image/jpg', 'image/jpeg', 'image/jpeg'];
     
     foreach($types as $i){
 
-            if(mb_strlen($postP)<=20 && $postP!=="" &&  $postTxt!=="" && $postImg['type']==$i){
+            if(mb_strlen($postP)<=20 && $postP!=="" &&  $postTxt!=="" && substr($postImg["type"], 0, 5) == "image"){
                 $query_insert = "insert into news (`image`, `title`, `content`, `category_id`) VALUES ('$postImg[name]', '$postP', '$postTxt', $postCat)";
                 $insert = mysqli_query($con, $query_insert);
                 echo "<h1>Ваша новость была отправлена !</h1>";
@@ -29,7 +29,7 @@
                 if($postTxt==""){
                     echo "Пустой текст новости <br>";
                 } 
-                if ($postImg['type']!==$i){
+                if (substr($postImg["type"], 0, 5) !== "image"){
                     echo "Это не изображение <br>";
                 }
             }
