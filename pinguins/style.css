@@ -257,27 +257,3 @@ img{
 #weatherImg{
     width: 1.2vmax;
 }
-body{
-    display: flex;
-    align-items: center;
-}
-main{
-    width: 85vmax;
-}
-.card{
-    font-family: 'Lato-Reg';
-    font-size: 0.8vmax;
-    text-decoration: none;
-}
-.void{
-    width: 100%;
-    height: 2vmax;
-}
-.void2{
-    width: 100%;
-    height: 4vmax;
-}
-
-.blockOneNews{
-    background-color: wheat;
-}

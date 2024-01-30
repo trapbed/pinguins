@@ -1,50 +1,35 @@
 <?php
+
+include "connect.php";
+
 $postImg=$_FILES["imagePost"];
 $postP=$_POST['titlePost'];
 $postTxt=$_POST['contentPost'];
 $postCat=$_POST['categoryId'];
 
+$title = isset($postP)?$postP:false;
+$text = isset($postTxt)?$postTxt:false;
+$file = isset($_FILES['image']['tmp_name'])?$postImg:false;
+$category = isset($postCat)?$postCat:false;
 
-// проверка заголовка
-echo "<p font='color:green;'>Проверка заголовка :</p>";
-if(mb_strlen($postP)<=20 ){
-    if($postP==""){
-    echo "Вы ввели пустое поле. Заполните заголовок <br>";
-    } else
-    echo "Тип данных <b>заголовка</b>: строчный. <br> Вы уложились в длинну 20 символов. <br> ";
+function check_error($error){
+    return "<script>
+    alert($error);
+    location.href = 'createNew.php' 
+    </script>";
+}
+
+if($title && $text && $file && $category){
+    if (strlen($title)>20) echo check_error('Название не должно превышать 20 символов!!!');
+    $result = mysqli_query($con, "insert into news (`image`, `title`, `content`, `category_id`) VALUES ('$postImg[name]', '$postP', '$postTxt', $postCat)");
+
+    if($result){
+        move_uploaded_file($file['name'], "images/myPinguin/".$file['name'].")");
+        check_error('Новость успешно создана');
+    }
+    else check_error('Произошла ошибка'.mysqli_error($con));
 }
 else{
-    echo "Слишком большой текст. <br>";
-}
-
-
-// проверка текста
-echo "<p>Проверка текста :</p>";
-
-if(mb_strlen($postTxt)<=20 ){
-    if($postTxt==""){
-    echo "Вы ввели пустое поле. <b>Заполните текст новости <b/><br>";
-    } else
-    echo "Тип данных <b>текста новости</b>: строчный. <br>";
-}
-else{
-    echo "Слишком большой текст. <br>";
-}
-
-
-// проверка на тип файла(изображение)
-
-echo "<p>Проверка типа файла :</p>";
-
-$types=['image/png', 'image/jpg', 'image/jpeg'];
-
-foreach($types as $i){
-    if($postImg['type']==$i){
-        echo "Это <b>изображение</b>!!!<br>";
-    }
-    else{
-        echo "Это <b>не изображение</b>(((<br>";
-    }
-    break;
+    echo check_error("Все поля должны быть заполнены!!!");
 }
 ?>
