@@ -44,7 +44,7 @@
         <a id='parentCreate' href="../admin"><img id='createNews' src='../images/plus.png' alt='Добавить новость'></a>
         
 
-        <form action=<?= $id_new?"../update.php":"../insert.php";?> method="POST" enctype="multipart/form-data">
+        <form action="<?=$id_new?"update":"create";?>.php" method="POST" enctype="multipart/form-data">
             <label for="imagePost">Изображение :</label>
             <input type="file" id="imagePost" name="imagePost" accept="image/*">
             <?=$id_new? "<img src='../images/pinguin/".$new_info['image']."' alt='такого изображения нет' id='preview'>":"";?>
@@ -74,6 +74,7 @@
                     // }
                 ?>
             </select>
+            <?=$id_new? "<input type='hidden' name='id' value='$id_new'>" : "";?>
             <br>
             <input type="submit" id="submitBtn" value="Отправить">
         </form>
