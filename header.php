@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>    
     <div id="search">
@@ -16,20 +16,20 @@
 
             <div id="underLeft">
                 <div id="ulL">
-                    <img src="images/menu.png" alt="menu" id=menu>
+                    <img src="../images/menu.png" alt="menu" id=menu>
                     <span>Секции</span>
                 </div>
 
                 <hr id="middle">
 
                 <div id="ulR">
-                    <img src="images/search.png" alt="search" id="searchImg">
+                    <img src="../images/search.png" alt="search" id="searchImg">
                     <span>Поиск</span>
                 </div>
             </div>
 
             <div id="underRight">
-                <img src="images/man.png" alt="man" id=manImg>
+                <img src="../images/man.png" alt="man" id=manImg>
                 <span>Войти</span>
             </div>
         </div>
@@ -105,7 +105,7 @@
                         echo date("$week, $month d, 20y");
                         ?>
                 <div id="weather">
-                    <img src="images/sun.png" alt="sun" id="weatherImg">
+                    <img src="../images/sun.png" alt="sun" id="weatherImg">
                     <span>- 23 °C</span>
                 </div>
             </div>

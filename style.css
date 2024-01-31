@@ -281,3 +281,14 @@ main{
 .blockOneNews{
     background-color: wheat;
 }
+#preview{
+    width: 10vmax;
+}
+#parentCreate{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+#createNews{
+    width: 3vmax;
+}

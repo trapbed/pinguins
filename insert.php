@@ -7,7 +7,7 @@
     include "connect.php"; //выражение include включает и выполняет указанный файл
 
     function check_error($error){
-        return "<script>alert('$error'); location.href = 'createNew.php';</script>";
+        return "<script>alert('$error'); location.href = '../admin';</script>";
     }
 
     if($postP && $postTxt && $postImg && $postCat){
@@ -18,7 +18,7 @@
             $imgName = $postImg['name'];
             $result = mysqli_query($con, "insert into news (`image`, `title`, `content`, `category_id`) VALUES ('$postImg[name]', '$postP', '$postTxt', $postCat)");
             if($result){
-                move_uploaded_file($postImg["tmp_name"], "images/pinguin/$imgName");
+                move_uploaded_file($postImg["tmp_name"], "../images/pinguin/$imgName");
                 echo check_error('Новость успешно создана.');
             }
             else {
