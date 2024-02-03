@@ -1,10 +1,6 @@
 <?php
     include "connect.php"; //выражение include включает и выполняет указанный файл
     
-
-   
-
-
     $news= mysqli_query($con, "select * from news");
 
     $new_id = isset($_GET['new'])?$_GET['new']:false;
@@ -30,8 +26,8 @@
     echo "<div class= 'blockOneNews'>
     <div class = 'void2'></div> 
     <img src='images/pinguin/".$new_info['image']."'>";
-    echo "<div id=''<p>Категория новости :".$new_info['name']."</p><p>".$new_info['publish_date']."</p></div>";
     echo "<h1>".$new_info['title']."</h1>";
+    echo "<div id=''<p>Категория новости :".$new_info['name']."</p><p>".$new_info['publish_date']."</p></div>";
     echo "<span>".$new_info['content']."</span>
     </div>";
 

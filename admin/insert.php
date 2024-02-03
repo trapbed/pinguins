@@ -4,7 +4,7 @@
             $postTxt=$_POST['contentPost'];
             $postCat=$_POST['categoryId'];
 
-    include "connect.php"; //выражение include включает и выполняет указанный файл
+    include "../connect.php"; //выражение include включает и выполняет указанный файл
 
     function check_error($error){
         return "<script>alert('$error'); location.href = '../admin';</script>";
@@ -29,39 +29,5 @@
     else{
         echo check_error("Все поля должны быть заполнены!");
     }
-
-
-
-
-    // $types=['image/png', 'image/jpg', 'image/jpeg', 'image/jpeg'];
-    
-    // foreach($types as $i){
-
-    //         if(mb_strlen($postP)<=20 && $postP!=="" &&  $postTxt!=="" && substr($postImg["type"], 0, 5) == "image"){
-    //             $query_insert = "insert into news (`image`, `title`, `content`, `category_id`) VALUES ('$postImg[name]', '$postP', '$postTxt', $postCat)";
-    //             $insert = mysqli_query($con, $query_insert);
-    //             echo "<h1>Ваша новость была создана !</h1>";
-    //         }
-    //         else{
-    //             echo "<h1>Ваша новсть не создана по причинам :<br></h1>";
-    //             if(mb_strlen($postP)>20 ){
-    //                 echo "Слишком длинный заголовок <br>";
-    //             }
-    //             if($postP==""){
-    //                 echo "Пустой заголовок <br>";
-    //             }
-    //             if(mb_strlen($postTxt)>20 ){
-    //                 echo "Слишком длинный текст новости <br>";
-    //             }
-    //             if($postTxt==""){
-    //                 echo "Пустой текст новости <br>";
-    //             } 
-    //             if (substr($postImg["type"], 0, 5) !== "image"){
-    //                 echo "Это не изображение <br>";
-    //             }
-    //         }
-    //         break;
-    //     }
-    
 
 ?>
