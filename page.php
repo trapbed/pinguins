@@ -4,31 +4,18 @@
     $query_get_category = " select * from categories ";
     $categories = mysqli_fetch_all(mysqli_query($con, $query_get_category));//получаем результат хапроса из переменной Query_get_category 
     //и преобразуем его в двумерный массив, где каждый элемент это массив с построчным получением кортежей из таблицы результата запроса 
-
-
+    
     $news= mysqli_query($con, "select * from news");
     include "header.php";
-
-
 ?>
-
-    <main>
-        <section class="last-news">
-            <div class="container">
-            <?php
-                while($new = mysqli_fetch_array($news)){
-                    $new_id = $new['news_id'];
-                    echo "<a href='oneNews.php?new=$new_id'>";
-                    echo "<div class='void'></div>";
-                    echo "<div class='card'>";
-                    echo "<img src='images/pinguin/".$new['image']."'>";
-                    echo "<h2 class='title'>".$new['title']."</h2>";
-                    echo "</a>";
-                }
-            ?>
-            </div>
-        </section>
-    </main>
-
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1>Привет, <?php echo $_COOKIE['name'];?>!</h1>
+	<a href="exit.php">Что бы выйти нажмите по ссылке.</a>
 </body>
 </html>

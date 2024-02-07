@@ -29,8 +29,8 @@
             </div>
 
             <div id="underRight">
-                <img src="../images/man.png" alt="man" id=manImg>
-                <span>Войти</span>
+                <a href='../reg.php'><img src="../images/man.png" alt="man" id=manImg></a>
+                <span><a id='logIn' href='../auth.php'>Войти</a></span>
             </div>
         </div>
         <hr id="hrHead">
@@ -38,7 +38,7 @@
 
     <div id="titleNWeather">
         <div id="inTitle">
-            <span>Пингвины</span>
+            <a href='../index.php' class='headerHead'><span>Пингвины</span></a>
             <div id="dayNWeather">
                 <?php
                     switch (date("w")){

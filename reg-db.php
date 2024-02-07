@@ -22,4 +22,8 @@
         exit();
     }
 
+    echo "Вы успешно зарегистрированы! ";
+
+    setcookie('name', $name, time() + 3600, '/');
+
     mysqli_query($con,"INSERT INTO users ( email, password, username) VALUES ('".$login."', '".$pass."', '".$name."')");
