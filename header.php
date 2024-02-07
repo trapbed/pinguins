@@ -38,7 +38,7 @@
 
     <div id="titleNWeather">
         <div id="inTitle">
-            <a href='../index.php' class='headerHead'><span>Пингвины</span></a>
+            <a href='index.php' class='headerHead'><span>Пингвины</span></a>
             <div id="dayNWeather">
                 <?php
                     switch (date("w")){
@@ -111,13 +111,11 @@
             </div>
         </div>
     </div>
-
     <nav>
         <div>
         <?php
-        
             foreach($categories as $categ){
-                echo "<a href='#'>$categ[1]</a>";
+                echo "<a href='../index.php?category=$categ[0]'>$categ[1]</a>";
             }
         ?>
         </div>

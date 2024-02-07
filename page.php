@@ -15,7 +15,7 @@
 	<title>Document</title>
 </head>
 <body>
-	<h1>Привет, <?php echo $_COOKIE['name'];?>!</h1>
+	<h1 id='notNews'>Привет, <?php echo $_COOKIE['name'];?>!</h1>
 	<a href="exit.php">Что бы выйти нажмите по ссылке.</a>
 </body>
 </html>

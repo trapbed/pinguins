@@ -3,8 +3,6 @@
 
     $id = isset($_GET['new']) ? $_GET['new'] : false;
 
-    echo $id;
-
     $delete = "DELETE FROM `news` WHERE news_id=$id";
 
     $result = mysqli_query($con, $delete);

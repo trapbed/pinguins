@@ -349,3 +349,9 @@ main{
 #highForm{
     height:20vmax;
 }
+
+#notNews{
+    font-family: 'Lato-Black';
+    font-size: 1.4vmax;
+    line-height: 400%;
+}

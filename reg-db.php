@@ -6,10 +6,14 @@
 
     require "connect.php";
 
-    $check = 0;
+    
+    if(mb_strlen($login) == 0 || mb_strlen($name) == 0 || mb_strlen($pass) == 0){  
+    echo "У вас есть незаполненные поля";
+    exit();
+   }
+
     if(mb_strlen($login) < 5 || mb_strlen($login) > 100){
         echo "Недопустимая длина логина";
-        $check = 1;
         exit();
     }
 
@@ -18,7 +22,6 @@
 
     if(!empty($user1)){
         echo "Данный логин уже используется!";
-        $check = 1;
         exit();
     }
 
