@@ -355,3 +355,27 @@ main{
     font-size: 1.4vmax;
     line-height: 400%;
 }
+
+#formSort{
+    display: flex;
+    flex-direction: row;
+}
+#orderInput{
+    width: 4vmax;
+    height: 2vmax;
+}
+#sortHead{
+    color: #262D33;
+    width: 85%;
+    line-height: 200%;
+    font-family: 'Lato-Reg';
+    font-size: 1.2vmax;
+}
+#sort-select{
+    width: 20vmax;
+    height: 2vmax;
+    border-radius: 0.2vmax;
+    padding-left: 0.5vmax;
+    font-family: 'Lato-Reg';
+    font-size: 0.8vmax;
+}

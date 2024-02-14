@@ -7,33 +7,54 @@
 
     $thisCat = isset($_GET['category']) ? $_GET['category'] : false;
 
-    $news ="";
-
-    if($thisCat){
-        $news = mysqli_query($con, "select * from news where category_id = $thisCat");
-    }
-    else{
-        $news = mysqli_query($con, "select * from news");
-    }
-
+    $sort = isset($_GET['sort']) ? $_GET['sort'] : false;
+    
     include "header.php";
 
 ?>
 
+    <h3  id='sortHead'>Сортировать</h3>
     <main>
+        <form action="index.php" method='GET' id='sort-form'>
+        <select class="form-select" aria-label="Default select example" name='sort' id='sort-select'>
+            <option value="" <?= ($sort and $sort == "") ? "selected" : ""; ?>>Без сортировки</option>
+            <option value="publish_date ASC" <?= ($sort and $sort == "publish_date ASC") ? "selected" : ""; ?>>по дате (сначала старые)</option>
+            <option value="publish_date DESC" <?= ($sort and $sort == "publish_date DESC") ? "selected" : ""; ?>>по дате (сначала новое)</option>
+            <option value="title ASC" <?= ($sort and $sort == "title ASC") ? "selected" : ""; ?>>по названию (А-Я)</option>
+            <option value="title DESC" <?= ($sort and $sort == "title DESC") ? "selected" : ""; ?>>по названию (Я-А)</option>
+        </select>
+        <input type="hidden" name="category" value='<?=$thisCat?>'>
+        <!-- <input type="submit" value="отправить"> -->
+        </form>
+
+
+
         <section class="last-news">
             <div class="container">
             <?php
-                    // var_dump(mysqli_fetch_assoc($news));
+
+        $news ="";
+
+
+        $querySort = "select * from news";
+        // session_start();
+        if ($thisCat ) { 
+            $querySort .= " where category_id=$thisCat";}
+        if ($sort) {$querySort .= " order by $sort";}
+            // echo $querySort;
+            $news = mysqli_query($con, $querySort);
+
+        
+        // print_r(mysqli_fetch_assoc($news));
+
                 $count = 0;
                 while($new = mysqli_fetch_array($news)){
                     $new_id = $new['news_id'];
-                    echo "<a href='oneNews.php?new=$new_id'>";
                     echo "<div class='void'></div>";
                     echo "<div class='card'>";
-                    echo "<img src='images/pinguin/".$new['image']."'>";
+                    echo "<a href='oneNews.php?new=$new_id'><img src='images/pinguin/".$new['image']."'></a>";
+                    echo "<p>".$new['publish_date']."</p>";
                     echo "<h2 class='title'>".$new['title']."</h2>";
-                    echo "</a>";
                     $count++;
                 }
                 if($count==0){
@@ -43,6 +64,10 @@
             </div>
         </section>
     </main>
-
+    <script>
+    $("#sort-select").change(function() {
+      $("#sort-form").submit();
+    });
+  </script>
 </body>
 </html>

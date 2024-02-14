@@ -11,20 +11,9 @@
         echo "<script>alert('Данные удалены!');location.href='/admin';</script>";
     }
     else{
-        echo "<script>alert('Ошибка удаления!".$mysqli_error($con)."');location.href='/admin';</script>";
+        echo "<script>alert('Ошибка удаления!".mysqli_error($con)."');location.href='/admin';</script>";
         
     }
 
-
-    // function check_error($error, $id){
-    //     return "<script>
-    //     alert('$error');
-    //     location.href = '/admin?new=$id'; 
-    //     </script>";
-    // }
-
-    // if($id){
-
-    // }
-
 ?>
+
