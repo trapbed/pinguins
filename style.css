@@ -61,15 +61,35 @@ body{
     background-color: #D9D9D9;
 }
 #ulR{
+    /* background-color: dodgerblue; */
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
     width: 8vmax;
 }
-#ulR>span{
+#ulR>input{
     font-family: 'Lato-Reg';
     color: #939699;
+    font-size: 1.2vmax;
+    font-weight: 100;
+}
+.text{
+    display: flex;
+    flex-direction: column;
+    justify-self: start;
+    align-self: start;
+    width: 50vmax;
+    margin-left: -9.1vmax;
+    border-radius: 0;
+    border: transparent;
+    height: 100%;
+}
+#text{
+    color: #939699;
+    padding-left: 5vmax;
+    font-family: 'Lato-Reg';
+    width: 65vmax;
     font-size: 1.2vmax;
     font-weight: 100;
 }
@@ -379,3 +399,18 @@ main{
     font-family: 'Lato-Reg';
     font-size: 0.8vmax;
 }
+
+.sortImg{
+    width: 2vmax;
+}
+.sortDate{
+    display: flex;
+    flex-direction: row;
+    width: 15vmax;
+    justify-content: space-between;
+    /* background-color: darkblue; */
+}
+.sortDate>li{
+    list-style: none
+}
+

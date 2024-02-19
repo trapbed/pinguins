@@ -9,7 +9,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style.css">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    
 </head>
 <body>    
     <div id="search">
@@ -24,10 +26,17 @@
                 <hr id="middle">
 
                 <div id="ulR">
+                    <!-- <form action="index.php" method="post" id='n'>
+                        <input type="text" name="" id="">
+                    </form> 
                     <img src="../images/search.png" alt="search" id="searchImg">
-                    <span>Поиск</span>
+                    <span>Поиск</span> -->
                 </div>
             </div>
+
+            <form action="index.php" method="post" class='text'>
+                <input type="text" name="text" class="text" id='text' placeholder='Поиск' value="">
+            </form>
 
             <div id="underRight">
                 <a href='../reg.php'><img src="../images/man.png" alt="man" id=manImg></a>
@@ -121,3 +130,15 @@
         ?>
         </div>
     </nav>
+
+    <script>
+        let search =document.getElementById("text");
+        search.addEventListener('keypress', function(e){
+            if(e.key === 'Enter'){
+                <?php
+                    $textSearch = isset($_POST['text']) ? $_POST['text'] : false;
+                    print_r($textSearch);
+                ?>
+            }
+        })
+    </script>

@@ -24,7 +24,6 @@
             <option value="title DESC" <?= ($sort and $sort == "title DESC") ? "selected" : ""; ?>>по названию (Я-А)</option>
         </select>
         <input type="hidden" name="category" value='<?=$thisCat?>'>
-        <!-- <input type="submit" value="отправить"> -->
         </form>
 
 
@@ -37,15 +36,14 @@
 
 
         $querySort = "select * from news";
-        // session_start();
-        if ($thisCat ) { 
-            $querySort .= " where category_id=$thisCat";}
-        if ($sort) {$querySort .= " order by $sort";}
-            // echo $querySort;
-            $news = mysqli_query($con, $querySort);
+
+        if ($thisCat ) { $querySort .= " where category_id=$thisCat";}
+        else if ($sort) { $querySort .= " order by $sort";}
+        else if ($textSearch) { $querySort .= "WHERE content LIKE '%$textSearch%' OR title LIKE '%$textSearch%'"; }
+        
+        $news = mysqli_query($con, $querySort);
 
         
-        // print_r(mysqli_fetch_assoc($news));
 
                 $count = 0;
                 while($new = mysqli_fetch_array($news)){
@@ -65,9 +63,9 @@
         </section>
     </main>
     <script>
-    $("#sort-select").change(function() {
-      $("#sort-form").submit();
-    });
+        $("#sort-select").change(function() {
+            $("#sort-form").submit();
+        });
   </script>
 </body>
 </html>
