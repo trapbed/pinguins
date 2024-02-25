@@ -39,7 +39,7 @@
 
         if ($thisCat ) { $querySort .= " where category_id=$thisCat";}
         else if ($sort) { $querySort .= " order by $sort";}
-        else if ($textSearch) { $querySort .= "WHERE content LIKE '%$textSearch%' OR title LIKE '%$textSearch%'"; }
+        else if ($textSearch) { $querySort .= " WHERE content LIKE '%$textSearch%' OR title LIKE '%$textSearch%'"; }
         
         $news = mysqli_query($con, $querySort);
 
