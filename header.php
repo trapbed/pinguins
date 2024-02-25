@@ -26,11 +26,6 @@
                 <hr id="middle">
 
                 <div id="ulR">
-                    <!-- <form action="index.php" method="post" id='n'>
-                        <input type="text" name="" id="">
-                    </form> 
-                    <img src="../images/search.png" alt="search" id="searchImg">
-                    <span>Поиск</span> -->
                 </div>
             </div>
 
@@ -70,7 +65,7 @@
                         case 6:
                             $week= "Суббота";
                             break;
-                        case 7:
+                        case 0:
                             $week= "Воскресенье";
                             break; 
                         }

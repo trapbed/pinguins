@@ -16,14 +16,16 @@
     <h3  id='sortHead'>Сортировать</h3>
     <main>
         <form action="index.php" method='GET' id='sort-form'>
-        <select class="form-select" aria-label="Default select example" name='sort' id='sort-select'>
-            <option value="" <?= ($sort and $sort == "") ? "selected" : ""; ?>>Без сортировки</option>
-            <option value="publish_date ASC" <?= ($sort and $sort == "publish_date ASC") ? "selected" : ""; ?>>по дате (сначала старые)</option>
-            <option value="publish_date DESC" <?= ($sort and $sort == "publish_date DESC") ? "selected" : ""; ?>>по дате (сначала новое)</option>
-            <option value="title ASC" <?= ($sort and $sort == "title ASC") ? "selected" : ""; ?>>по названию (А-Я)</option>
-            <option value="title DESC" <?= ($sort and $sort == "title DESC") ? "selected" : ""; ?>>по названию (Я-А)</option>
-        </select>
-        <input type="hidden" name="category" value='<?=$thisCat?>'>
+            <select class="form-select" aria-label="Default select example" name='sort' id='sort-select'>
+                <option value="" <?= ($sort and $sort == "") ? "selected" : ""; ?>>Без сортировки</option>
+                <option value="publish_date ASC" <?= ($sort and $sort == "publish_date ASC") ? "selected" : ""; ?>>по дате (сначала старые)</option>
+                <option value="publish_date DESC" <?= ($sort and $sort == "publish_date DESC") ? "selected" : ""; ?>>по дате (сначала новое)</option>
+                <option value="title ASC" <?= ($sort and $sort == "title ASC") ? "selected" : ""; ?>>по названию (А-Я)</option>
+                <option value="title DESC" <?= ($sort and $sort == "title DESC") ? "selected" : ""; ?>>по названию (Я-А)</option>
+            </select>
+
+            <input type='hidden' name='category' value='<?=$thisCat?>'>
+        
         </form>
 
 
@@ -37,8 +39,8 @@
 
         $querySort = "select * from news";
 
-        if ($thisCat ) { $querySort .= " where category_id=$thisCat";}
-        else if ($sort) { $querySort .= " order by $sort";}
+        if ($thisCat ) { $querySort .= " WHERE category_id=$thisCat";}
+        if ($sort) { $querySort .= " ORDER BY $sort";}
         else if ($textSearch) { $querySort .= " WHERE content LIKE '%$textSearch%' OR title LIKE '%$textSearch%'"; }
         
         $news = mysqli_query($con, $querySort);
