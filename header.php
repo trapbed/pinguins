@@ -26,10 +26,15 @@
                 <hr id="middle">
 
                 <div id="ulR">
+                    <!-- <form action="index.php" method="post" id='n'>
+                        <input type="text" name="" id="">
+                    </form> 
+                    <img src="../images/search.png" alt="search" id="searchImg">
+                    <span>Поиск</span> -->
                 </div>
             </div>
 
-            <form action="index.php" method="post" class='text'>
+            <form action="index.php" method="GET" class='text'>
                 <input type="text" name="text" class="text" id='text' placeholder='Поиск' value="">
             </form>
 
@@ -65,7 +70,7 @@
                         case 6:
                             $week= "Суббота";
                             break;
-                        case 0:
+                        case 7:
                             $week= "Воскресенье";
                             break; 
                         }
@@ -103,7 +108,7 @@
                         case 11:
                             $month= "Ноябрь";
                             break;
-                        case 12:
+case 12:
                             $month= "Декабрь";
                             break;
                         }
@@ -131,7 +136,7 @@
         search.addEventListener('keypress', function(e){
             if(e.key === 'Enter'){
                 <?php
-                    $textSearch = isset($_POST['text']) ? $_POST['text'] : false;
+                    $textSearch = isset($_GET['text']) ? $_GET['text'] : false;
                     print_r($textSearch);
                 ?>
             }
