@@ -416,3 +416,8 @@ main{
 #text{
     outline: none;
 }
+
+
+#pagination{
+    background-color: transparent;
+}

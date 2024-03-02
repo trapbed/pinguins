@@ -8,7 +8,14 @@
     $thisCat = isset($_GET['category']) ? $_GET['category'] : false;
 
     $sort = isset($_GET['sort']) ? $_GET['sort'] : false;
-    
+
+    $pinguin_count = 3;//limit n
+    $page = isset($_GET['page']) ? $_GET['page'] : 1 ;
+    $offset = $page * $pinguin_count - $pinguin_count; //offset m
+
+    // $students = mysqli_query($con, $query." LIMIT $paginate_count OFFSET $offset");
+  
+
     include "header.php";
 
 ?>
@@ -29,7 +36,7 @@
 
 
         <section class="last-news">
-            <div class="container">
+            <div class="containerU">
             <?php
 
         $news ="";
@@ -40,16 +47,22 @@
         if ($thisCat ) { $querySort .= " where category_id=$thisCat";}
         if ($sort) { $querySort .= " order by $sort";}
         if ($textSearch) { $querySort .= " WHERE title LIKE '%$textSearch%'"; }
+        // else{$querySort.= " LIMIT $pinguin_count OFFSET $offset";}
+
+        $query = mysqli_query($con, $querySort." LIMIT $pinguin_count OFFSET $offset");
+
+        $count_pinguins = mysqli_num_rows(mysqli_query($con, $querySort));
+
         
         $news = mysqli_query($con, $querySort);
 
         
 
                 $count = 0;
-                while($new = mysqli_fetch_array($news)){
+                while($new = mysqli_fetch_array($query)){
                     $new_id = $new['news_id'];
                     echo "<div class='void'></div>";
-                    echo "<div class='card'>";
+                    echo "<div class='cardS'>";
                     echo "<a href='oneNews.php?new=$new_id'><img src='images/pinguin/".$new['image']."'></a>";
                     echo "<p>".$new['publish_date']."</p>";
                     echo "<h2 class='title'>".$new['title']."</h2>";
@@ -62,6 +75,26 @@
             </div>
         </section>
     </main>
+
+    <nav id='pagination' aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item">
+            <a class="page-link" href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a></li>
+            <?php for($i=1; $i<=ceil($count_pinguins/$pinguin_count); $i++){ ?>
+            <li class="page-item"><a class="page-link" href="?page=<?=$i?> "> 
+            <?=$i?>
+            <?php } ?>
+            </a></li>
+            <li class="page-item">
+            <a class="page-link" href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+            </li>
+        </ul>
+    </nav>
+
     <script>
         $("#sort-select").change(function() {
             $("#sort-form").submit();
