@@ -10,10 +10,10 @@
     $sort = isset($_GET['sort']) ? $_GET['sort'] : false;
 
     $pinguin_count = 3;//limit n
+    // проверка выбранной страницы, дефолтное= 1
     $page = isset($_GET['page']) ? $_GET['page'] : 1 ;
     $offset = $page * $pinguin_count - $pinguin_count; //offset m
 
-    // $students = mysqli_query($con, $query." LIMIT $paginate_count OFFSET $offset");
   
 
     include "header.php";

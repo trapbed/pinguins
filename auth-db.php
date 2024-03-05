@@ -19,9 +19,9 @@
         exit();
     }
     
-    setcookie('user', $user['user_id'], time() + 3600, "/");
+    setcookie('id', $user['user_id'], time() + 3600, "/");
     setcookie('name', $user['username'], time() + 3600, "/");
     
-    header('Location: page.php');
+    header('Location: account.php');
 
 ?>

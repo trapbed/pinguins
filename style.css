@@ -421,3 +421,38 @@ main{
 #pagination{
     background-color: transparent;
 }
+
+
+.accountLabel{
+    display: flex;
+    flex-direction: column;
+    font-family: Lato-Black;
+    font-size: 1.1vmax;
+    height: 4.8vmax;
+    width: 35vmax;
+    line-height: 0;
+    justify-content: space-between;
+}
+.accountLabel>input{
+    font-family: Lato-Italic;
+    color: #4B5157;
+    margin-left: 1vmax;
+    padding-left: 1vmax;
+    border: transparent;
+    border-bottom: 0.1vmax solid #262D33;
+}
+#accountSubmit{
+    font-family: Lato-Reg;
+    font-size: 0.8vmax;
+    border-radius: 0;
+    height: 2vmax;
+    width: 15vmax;
+}
+#accountMain{
+    padding-top: 2vmax;
+}
+
+#checkP{
+    font-family: 'Lato-Black';
+    font-size: 1.3vmax;
+}
