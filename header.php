@@ -41,8 +41,24 @@
             </form>
 
             <div id="underRight">
-                <a href='../reg.php'><img src="../images/man.png" alt="man" id=manImg></a>
-                <span><a id='logIn' href='../auth.php'>Войти</a></span>
+                    <?= isset($_COOKIE['id']) ? "<span>".$_COOKIE['name']."</span>" : "<a href='../reg.php'><img src='../images/man.png' alt='man' id=manImg></a>"?>
+                
+                <span>
+                    <?php
+                        echo isset($_COOKIE['id']) ? "<a id='logIn' href='../exit.php'>Выйти</a>" : "<a id='logIn' href='../auth.php'>Войти</a>";
+
+                        // $id = isset($_COOKIE['id']) ? $_COOKIE['id'] : false;
+
+                        // if($id){
+                        //     $user_name_array = mysqli_fetch_assoc(mysqli_query($con, "SELECT username FROM users WHERE user_id = $id"));
+                        //     $user_name = $user_name_array['username'];
+                        //     echo "<span><a id='logIn' href='../exit.php'>Выйти ".$user_name."</a></span>";
+                        // }
+                        // else{
+                        //     echo "<span><a id='logIn' href='../auth.php'>Войти</a></span>";
+                        // }
+                    ?>
+                </span>
             </div>
         </div>
         <hr id="hrHead">

@@ -20,7 +20,7 @@
     <h1>Форма регистрации</h1>
     <form action="reg-db.php" method="post" class='formAuth' id='highForm'>
         <input type="text" name="name" id="name" class="form-control" placeholder="Имя"><br>
-        <input type="text" name="login" class="form-control" id="login" placeholder="Логин"><br>
+        <input type="text" name="login" class="form-control" id="login" placeholder="Почта"><br>
         <input type="password" name="pass" class="form-control" id="pass" placeholder="Пароль"><br>
         <div id='forButtons'>
             <button class="btn-success">Зарегистрироваться</button>

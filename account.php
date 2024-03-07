@@ -11,6 +11,8 @@
 
     $user = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM users WHERE user_id = '".$idUser."'"));
 
+    setcookie('username', $user['username'] , time()+3600, '/');
+
     include "header.php";
 ?>
 <!DOCTYPE html>
@@ -21,7 +23,6 @@
 </head>
 <body>
     <main id='accountMain'>
-        <a href="exit.php">Выйти</a>
         <form  action="changeAccount.php" method='POST'>
             <label for="name" class='accountLabel'>Ваш логин
                 <input name = 'name' type="text" value = '<?=$user['username']?>' readonly>

@@ -27,6 +27,14 @@
 
     echo "Вы успешно зарегистрированы! ";
 
-    setcookie('name', $name, time() + 3600, '/');
+    setcookie('id', $name, time() + 3600, '/');
 
     mysqli_query($con,"INSERT INTO users ( email, password, username) VALUES ('".$login."', '".$pass."', '".$name."')");
+
+    // session_start();
+
+    // $_SESSION['id'] = mysqli_insert_id($con);
+
+    setcookie('id', mysqli_insert_id($con) , time()+3600, '/');
+
+    echo "<script>location.href = 'account.php'</script>";

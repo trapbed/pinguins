@@ -20,7 +20,7 @@
     <div class="containermt">
     <h1>Форма авторизации</h1>
     <form action="auth-db.php" method="post" class='formAuth'>
-        <input type="text" name="login" class="form-control" id="login" placeholder="Логин"><br>
+        <input type="text" name="login" class="form-control" id="login" placeholder="Почта"><br>
         <input type="password" name="pass" class="form-control" id="pass" placeholder="Пароль"><br>
         <div id='forButtons'>
             <button class="btn-success">Авторизоваться</button>
