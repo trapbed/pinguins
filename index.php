@@ -57,14 +57,18 @@
         $news = mysqli_query($con, $querySort);
 
         
+        
 
                 $count = 0;
                 while($new = mysqli_fetch_array($query)){
+                    
                     $new_id = $new['news_id'];
                     echo "<div class='void'></div>";
                     echo "<div class='cardS'>";
+                    $count_comm = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(*) FROM comments WHERE news_id = $new_id"));
                     echo "<a href='oneNews.php?new=$new_id'><img src='images/pinguin/".$new['image']."'></a>";
                     echo "<p>".$new['publish_date']."</p>";
+                    echo "Количество комментариев: $count_comm[0]";
                     echo "<h2 class='title'>".$new['title']."</h2>";
                     $count++;
                 }

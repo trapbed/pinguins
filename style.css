@@ -450,8 +450,47 @@ main{
 #accountMain{
     padding-top: 2vmax;
 }
-
 #checkP{
     font-family: 'Lato-Black';
     font-size: 1.3vmax;
+}
+
+#comments{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 48vmax;
+}
+#text_comm{
+    width: 35vmax;
+    height: 3vmax;
+    border-radius: 0.2vmax;
+    border: 0.05vmax solid #262D33;
+    outline: transparent;
+    padding: 1vmax;
+}
+#comm_submit{
+    align-self: center;
+    width: 10vmax;
+    height: 3vmax;
+    border: transparent;
+    background-color: #262D33;
+    color: #D9D9D9;
+    font-family: 'Lato-Reg';
+}
+
+#forWDYM{
+    display: flex;
+    width: 48vmax;
+
+}
+#whatDoYouMean{
+    font-size: 1.2vmax;
+    font-family: 'Lato-Reg';
+}
+
+.blockOneNews{
+    display: flex;
+    flex-direction: column;
+    width: 48vmax;
 }

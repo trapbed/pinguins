@@ -28,11 +28,6 @@
                 <hr id="middle">
 
                 <div id="ulR">
-                    <!-- <form action="index.php" method="post" id='n'>
-                        <input type="text" name="" id="">
-                    </form> 
-                    <img src="../images/search.png" alt="search" id="searchImg">
-                    <span>Поиск</span> -->
                 </div>
             </div>
 
@@ -41,8 +36,7 @@
             </form>
 
             <div id="underRight">
-                    <?= isset($_COOKIE['id']) ? "<span>".$_COOKIE['name']."</span>" : "<a href='../reg.php'><img src='../images/man.png' alt='man' id=manImg></a>"?>
-                
+                    <?= isset($_COOKIE['id']) ? "<span><a id='logIn' href='account.php'>".$_COOKIE['name']."</a></span>" : "<a href='../reg.php'><img src='../images/man.png' alt='man' id=manImg></a>"?>
                 <span>
                     <?php
                         echo isset($_COOKIE['id']) ? "<a id='logIn' href='../exit.php'>Выйти</a>" : "<a id='logIn' href='../auth.php'>Войти</a>";
@@ -126,7 +120,7 @@
                         case 11:
                             $month= "Ноябрь";
                             break;
-case 12:
+                        case 12:
                             $month= "Декабрь";
                             break;
                         }
