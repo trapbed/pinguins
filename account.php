@@ -24,16 +24,16 @@
 <body>
     <main id='accountMain'>
         <form  action="changeAccount.php" method='POST'>
-            <label for="name" class='accountLabel'>Ваш логин
-                <input name = 'name' type="text" value = '<?=$user['username']?>' readonly>
+            <label for="name" class='accountLabel'>Ваше имя пользоватея
+                <input class='nonOutline' name = 'name' type="text" value = '<?=$user['username']?>' readonly>
             </label>
             <label for="email" class='accountLabel'>Ваша почта
-                <input name = 'email' type="text" value = '<?=$user['email']?>' readonly>
+                <input class='nonOutline' name = 'email' type="text" value = '<?=$user['email']?>' readonly>
             </label>
             <label for="pass" class='accountLabel'>Ваш пароль
-                <input name = 'pass' type="text" value = '<?=$user['password']?>' readonly>
+                <input class='nonOutline' name = 'pass' type="text" value = '<?=$user['password']?>' readonly>
             </label>
-            <input id = 'accountSubmit' type="submit" value="Изменить данные профиля">
+            <div id="changeBlock"><input id = 'accountSubmit' type="submit" value="Изменить данные профиля"><img id='changeAccImg' src='images/pen.png' alt='pen'></div>
         </form>
         
     </main>

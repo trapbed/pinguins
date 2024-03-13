@@ -68,7 +68,7 @@
                     $count_comm = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(*) FROM comments WHERE news_id = $new_id"));
                     echo "<a href='oneNews.php?new=$new_id'><img src='images/pinguin/".$new['image']."'></a>";
                     echo "<p>".$new['publish_date']."</p>";
-                    echo "Количество комментариев: $count_comm[0]";
+                    echo "<div class='comm'><img class='imgComm' src='images/comm.png' alt='comm'> $count_comm[0]</div>";
                     echo "<h2 class='title'>".$new['title']."</h2>";
                     $count++;
                 }

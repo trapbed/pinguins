@@ -7,17 +7,17 @@
 
     if($new_comm && $text_comm && $user_comm){
         $create = mysqli_query($con, "INSERT INTO `comments`( `news_id`, `user_id`, `comment_text`) VALUES ($new_comm, $user_comm,'$text_comm')");
-        echo "<scpipt>
+        echo "<script>
         alert('Комментарий создан');
             location.href = 'oneNews.php?new=$new_comm';
-        </scpipt>";
+        </script>";
     }
     else{
         echo "
-        <scpipt>
+        <script>
             alert('Вы не можете написать комментарий');
             location.href = 'oneNews.php?new=$new_comm';
-        </scpipt>
+        </script>
         ";
     }
 ?>

@@ -38,6 +38,9 @@
     echo "<div id=''<p>Категория новости :".$new_info['name']."</p><p>".$new_info['publish_date']."</p></div>";
     echo "<span>".$new_info['content']."</span>
     <h3>Комментарии</h3>";
+    $count_comm = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(*) FROM comments WHERE news_id = $new_id"));
+    echo "<div class='comm'><img class='imgComm' src='images/comm.png' alt='comm'> $count_comm[0]</div>";
+
     if($comments){
         foreach ($comments as $comm){
             $mon_comm = $comm[2];//date
@@ -59,8 +62,7 @@
             </div>";
     }
     
-    $count_comm = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(*) FROM comments WHERE news_id = $new_id"));
-    echo "<br>Количество комментариев: $count_comm[0]";}
+    }
     else{ echo "<i>Комментариев пока нет !</i>";}
     echo "</div>";
     if(isset($_COOKIE['id'])){
@@ -85,7 +87,19 @@
         ";
     }
     else{
-        echo "<span>Что бы оставить комментарии войдите в аккаунт !</span>";
+        echo "
+        <br>
+        <div id='forWDYM'><h2 id='whatDoYouMean'>Что вы думаете об этом ? </h2></div>
+        <form id='comments' action='comment-db.php' method='POST'>
+            <label for='text_comm'>
+                <input type='text' name='text_comm' id='text_comm' value='Что бы оставить комментарии войдите в аккаунт !' readonly>
+            </label>
+            <input type='submit' id='comm_submit' value='Оставить комментарий'>
+        </form>
+        ";
+
+
+        // echo "<span>Что бы оставить комментарии войдите в аккаунт !</span>";
     }
 ?>
 

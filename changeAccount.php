@@ -22,16 +22,16 @@
     <main id='accountMain'>
         <p id = 'checkP'>Изменение аккаунта</p>
         <form action="changeAcc-db.php" method='POST'>
-            <label for="name" class='accountLabel'>Ваш логин
-                <input name = 'name' type="text" value = '<?=$user['username']?>' required>
+            <label for="name" class='accountLabel'>Ваше имя пользователя
+                <input class='nonOutline' name = 'name' type="text" value = '<?=$user['username']?>' required>
             </label>
-            <label for="email" class='accountLabel'>Ваша почта
-                <input name = 'email' type="text" value = '<?=$user['password']?>' required>
+            <label for="pass" class='accountLabel'>Ваша почта
+                <input class='nonOutline' name = 'pass' type="text" value = '<?=$user['email']?>' required>
             </label>
-            <label for="pass" class='accountLabel'>Ваш пароль
-                <input name = 'pass' type="text" value = '<?=$user['email']?>' required>
+            <label for="email" class='accountLabel'>Ваша пароль
+                <input class='nonOutline' name = 'email' type="text" value = '<?=$user['password']?>' required>
             </label>
-            <input id = 'accountSubmit' type="submit" value="Изменить данные профиля">
+            <input id = 'accountSubmit' type="submit" value="Сохранить изменения">
         </form>
         
     </main>

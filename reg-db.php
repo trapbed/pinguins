@@ -13,7 +13,7 @@
    }
 
     if(mb_strlen($login) < 5 || mb_strlen($login) > 100){
-        echo "Недопустимая длина логина";
+        echo "<script>alert('Недопустимая длина логина')</script>";
         exit();
     }
 
