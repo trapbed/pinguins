@@ -262,12 +262,14 @@ table{
     text-align: center;
 }
 td{
-    border-right:  0.1vmax solid #262D33 ;
-    border-bottom: 0.05vmax solid #4B5157;
     height: 2vmax;
     font-family: 'Lato-Reg';
     font-size: 1vmax;
     padding-left: 2vmax;
+}
+tbody>tr>td{
+    border-right:  0.1vmax solid #262D33 ;
+    border-bottom: 0.05vmax solid #4B5157;
 }
 #last{
     border-right: transparent;
@@ -529,4 +531,11 @@ main{
     justify-content: space-between;
     align-items: center;
     width: 18vmax;
+}
+
+#comentsTitleImg{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 15vmax;
 }

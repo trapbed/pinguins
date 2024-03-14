@@ -1,16 +1,17 @@
 <?php
     include "connect.php"; //выражение include включает и выполняет указанный файл
-
+    // CATEGORY
     $query_get_category = " select * from categories ";
     $categories = mysqli_fetch_all(mysqli_query($con, $query_get_category));//получаем результат хапроса из переменной Query_get_category 
-    //и преобразуем его в двумерный массив, где каждый элемент это массив с построчным получением кортежей из таблицы результата запроса 
-
+    //и преобразуем его в двумерный массив, где каждый элемент это массив с построчным получением кортежей из таблицы результата запроса   
     $thisCat = isset($_GET['category']) ? $_GET['category'] : false;
 
+    // SORT
     $sort = isset($_GET['sort']) ? $_GET['sort'] : false;
 
+    // PAGINATE
     $pinguin_count = 3;//limit n
-    // проверка выбранной страницы, дефолтное= 1
+    // проверка выбранной страницы, несущ. = 1
     $page = isset($_GET['page']) ? $_GET['page'] : 1 ;
     $offset = $page * $pinguin_count - $pinguin_count; //offset m
 
@@ -44,14 +45,14 @@
 
         $querySort = "select * from news";
 
-        if ($thisCat ) { $querySort .= " where category_id=$thisCat";}
-        if ($sort) { $querySort .= " order by $sort";}
-        if ($textSearch) { $querySort .= " WHERE title LIKE '%$textSearch%'"; }
+        if ($thisCat ) { $querySort .= " where category_id=$thisCat";}//фильтр
+        if ($sort) { $querySort .= " order by $sort";}//сортировка
+        if ($textSearch) { $querySort .= " WHERE title LIKE '%$textSearch%'"; }//поисковой запрос в шапке
         // else{$querySort.= " LIMIT $pinguin_count OFFSET $offset";}
 
-        $query = mysqli_query($con, $querySort." LIMIT $pinguin_count OFFSET $offset");
+        $query = mysqli_query($con, $querySort." LIMIT $pinguin_count OFFSET $offset");//общий запрос пагниации с сортировкой
 
-        $count_pinguins = mysqli_num_rows(mysqli_query($con, $querySort));
+        $count_pinguins = mysqli_num_rows(mysqli_query($con, $querySort));//количество строк запроса на выборку
 
         
         $news = mysqli_query($con, $querySort);
@@ -80,6 +81,8 @@
         </section>
     </main>
 
+    <!-- ПАГИНАЦИЯ -->
+
     <nav id='pagination' aria-label="Page navigation example">
         <ul class="pagination">
             <li class="page-item">
@@ -99,6 +102,7 @@
         </ul>
     </nav>
 
+    <!-- Отправка формы без инпута ч/з бутстрап -->
     <script>
         $("#sort-select").change(function() {
             $("#sort-form").submit();

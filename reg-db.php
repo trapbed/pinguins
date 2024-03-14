@@ -8,9 +8,9 @@
 
     
     if(mb_strlen($login) == 0 || mb_strlen($name) == 0 || mb_strlen($pass) == 0){  
-    echo "У вас есть незаполненные поля";
-    exit();
-   }
+        echo "У вас есть незаполненные поля";
+        exit();
+    }
 
     if(mb_strlen($login) < 5 || mb_strlen($login) > 100){
         echo "<script>alert('Недопустимая длина логина')</script>";
@@ -25,7 +25,7 @@
         exit();
     }
 
-    echo "Вы успешно зарегистрированы! ";
+    // echo "";
 
     setcookie('id', $name, time() + 3600, '/');
 
@@ -37,4 +37,6 @@
 
     setcookie('id', mysqli_insert_id($con) , time()+3600, '/');
 
-    echo "<script>location.href = 'account.php'</script>";
+    echo "<script>
+    alert('Вы успешно зарегистрированы!');
+    location.href = 'account.php'</script>";
