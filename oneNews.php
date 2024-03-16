@@ -5,8 +5,6 @@
 
     $new_id = isset($_GET['new'])?$_GET['new']:false;
     
-    //$query_getNew = "SELECT * FROM `news` WHERE news_id=$new_id";
-    
     include "header.php";
     
     if($new_id){
@@ -39,15 +37,15 @@
     echo "<h1>".$new_info['title']."</h1>";
     echo "<div id=''<p>Категория новости :".$new_info['name']."</p><p>".$new_info['publish_date']."</p></div>";
     echo "<span>".$new_info['content']."</span>";
-    $count_comm = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(*) FROM comments WHERE news_id = $new_id"));
 
+    $count_comm = mysqli_fetch_array(mysqli_query($con, "SELECT COUNT(*) FROM comments WHERE news_id = $new_id"));
     echo "<div id='comentsTitleImg'><h3>Комментарии</h3><div class='comm'><img class='imgComm' src='images/comm.png' alt='comm'> $count_comm[0]</div></div>";
         if($comments){
             foreach ($comments as $comm){
                 $mon_comm = $comm[2];//date
                 $monthNew_comm = substr($mon_comm, 5, 2);//cut
                 $m_text_comm = $month[$monthNew_comm];//
-                $comm[2]= strtotime($comm[2]);//converter
+                $comm[2]= strtotime($comm[2]);//converter date
                 $comm[2]=date("d ".$m_text_comm." Y H:i:s", ($comm[2]));
 
                 echo "
@@ -58,7 +56,6 @@
                         <h4>$comm[0]</h4>
                         <i>$comm[2]</i><br>
                         <h5>$comm[1]</h5>";
-                        // print_r($comm);
                     echo "</div>
                 </div>";
             }

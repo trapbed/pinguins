@@ -1,19 +1,29 @@
 <?php
-    include "connect.php"; //выражение include включает и выполняет указанный файл
+    $idUser = isset($_COOKIE['id']) ? $_COOKIE['id'] : false;
 
-    $query_get_category = " select * from categories ";
-    $categories = mysqli_fetch_all(mysqli_query($con, $query_get_category));//получаем результат хапроса из переменной Query_get_category 
-    //и преобразуем его в двумерный массив, где каждый элемент это массив с построчным получением кортежей из таблицы результата запроса 
-    
-    $news= mysqli_query($con, "select * from news");
+    if($idUser){
 
-    $idUser = $_COOKIE['id'];
+        include "connect.php"; //выражение include включает и выполняет указанный файл
 
-    $user = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM users WHERE user_id = '".$idUser."'"));
+        $query_get_category = " select * from categories ";
+        $categories = mysqli_fetch_all(mysqli_query($con, $query_get_category));//получаем результат хапроса из переменной Query_get_category 
+        //и преобразуем его в двумерный массив, где каждый элемент это массив с построчным получением кортежей из таблицы результата запроса 
+        
+        $news= mysqli_query($con, "select * from news");
 
-    setcookie('username', $user['username'] , time()+3600, '/');
+        $user = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM users WHERE user_id = '".$idUser."'"));
 
-    include "header.php";
+        setcookie('username', $user['username'] , time()+3600, '/');
+
+        include "header.php";
+    }
+    else{
+        echo "
+        <script>
+            alert('Вы не вошли в аккаунт');
+            location.href = '/';
+        </script>";
+    }
 ?>
 <!DOCTYPE html>
 <html lang="ru">

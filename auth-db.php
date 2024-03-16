@@ -8,14 +8,21 @@
 
     $user = mysqli_fetch_array(mysqli_query($con, "SELECT * FROM users WHERE email='$login' AND password='$pass'" ));
 
-    // print_r($user);
-
     if(empty($user['username']) AND empty($user['password'])){
-        echo "Такой пользователь не найден.";
+        echo "
+        <script>
+            alert('Такой пользователь не найден.');
+            location.href='/';
+        </script>";
         exit();
     }
     else if(empty($user['username']) OR empty($user['password'])){
-        echo "Логин или пароль введены неверно";
+        echo "
+        <script>
+            alert('Логин или пароль введены неверно');
+            location.href='/';
+        </script>";
+
         exit();
     }
     

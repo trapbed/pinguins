@@ -1,10 +1,8 @@
 <?php
     require "..\connect.php";
    
-
     $query = mysqli_query($con, "SELECT news_id, title, publish_date, categories.name, image FROM `news` JOIN categories on news.category_id=categories.category_id order by news.category_id;");
     $allNews = mysqli_fetch_all($query);
-    
 
     require "..\header.php";
 
@@ -15,13 +13,11 @@
     }
 ?>
 
-
     <div id="allNews">
         <p id="weNews"><?= $id_new?"Редактирование новости № $id_new":"Создание новости";?></p>
         <table>
 
             <tr id='headTable'>
-                <!-- <td>Создать</td> -->
                 <td>Заголовок</td>
                 <td>Дата публикации</td>
                 <td >Категория</td>
@@ -43,11 +39,9 @@
                 
             ?>
         </table>
-            
         
         <a href="../admin"><img id='createNews' src='../images/plus.png' alt='Добавить новость'></a>
         
-
         <form action="<?=$id_new?"update":"insert";?>.php" method="POST" enctype="multipart/form-data">
             <label for="imagePost">Изображение :</label>
             <input type="file" id="imagePost" name="imagePost" accept="image/*">
@@ -61,8 +55,6 @@
             <br>
             <label for="categoryId">Категория :</label>
             <select name="categoryId" id="categoryId">
-                <!-- <option value="1">Питание</option>
-                <option value="2">Содержание</option> -->
                 <?php
                     foreach($categories as $categ){
                         if($categ[0]==$new_info['category_id']){
@@ -72,10 +64,6 @@
                             echo "<option value = '".$categ[0]."'>".$categ[1]."</option>";
                         }
                     }
-
-                    // while($cat = mysqli_fetch_assoc($categories)){
-                    //     echo "<option value = '".$cat['category_id']."'>".$cat['name']."</option>";
-                    // }
                 ?>
             </select>
             <?=$id_new? "<input type='hidden' name='id' value='$id_new'>" : "";?>

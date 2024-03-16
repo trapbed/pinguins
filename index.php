@@ -48,7 +48,6 @@
         if ($thisCat ) { $querySort .= " where category_id=$thisCat";}//фильтр
         if ($sort) { $querySort .= " order by $sort";}//сортировка
         if ($textSearch) { $querySort .= " WHERE title LIKE '%$textSearch%'"; }//поисковой запрос в шапке
-        // else{$querySort.= " LIMIT $pinguin_count OFFSET $offset";}
 
         $query = mysqli_query($con, $querySort." LIMIT $pinguin_count OFFSET $offset");//общий запрос пагниации с сортировкой
 
@@ -102,7 +101,7 @@
         </ul>
     </nav>
 
-    <!-- Отправка формы без инпута ч/з бутстрап -->
+    <!-- Отправка формы без сабмита ч/з бутстрап -->
     <script>
         $("#sort-select").change(function() {
             $("#sort-form").submit();

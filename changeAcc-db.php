@@ -53,7 +53,7 @@ else{
         }
     }
     else{
-            echo "<script>alert('Данные актуалные');
+            echo "<script>alert('Данные актуальные');
             location.href = 'account.php';</script>";
     }
 }

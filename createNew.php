@@ -1,5 +1,4 @@
 <?php
-
     //select option
     include "connect.php";
 
@@ -11,8 +10,6 @@
 
     include "header.php";
 ?>
-
-
 
     <p id="headerTxt">Создайте новость</p>
     <form action="insert.php" method="POST" enctype="multipart/form-data">
@@ -27,23 +24,15 @@
         <br>
         <label for="categoryId">Категория :</label>
         <select name="categoryId" id="categoryId">
-            <!-- <option value="1">Питание</option>
-            <option value="2">Содержание</option> -->
             <?php
                 foreach($categories as $categ){
                     echo "<option value = '".$categ[0]."'>".$categ[1]."</option>";
                 }
-
-                // while($cat = mysqli_fetch_assoc($categories)){
-                //     echo "<option value = '".$cat['category_id']."'>".$cat['name']."</option>";
-                // }
             ?>
         </select>
         <br>
         <input type="submit" id="submitBtn" value="Отправить">
     </form>
-
-
 
 </body>
 </html>

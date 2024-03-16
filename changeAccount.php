@@ -1,9 +1,3 @@
-<?php 
-    // echo $_POST['name'];
-    // echo $_POST['pass'];
-    // echo $_POST['email'];
-?>
-
 <?php
     include "connect.php"; //выражение include включает и выполняет указанный файл
 
