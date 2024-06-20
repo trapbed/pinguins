@@ -1,0 +1,416 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+@font-face {
+    font-family: 'Lato-Black';
+    src: url(fonts/Lato-Black.ttf);
+}
+@font-face {
+    font-family: 'Lato-Italic';
+    src: url(fonts/Lato-Italic.ttf);
+}
+@font-face {
+    font-family: 'Lato-Reg';
+    src: url(fonts/Lato-Regular.ttf);
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#search{
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 86.5vmax;
+    height: 3.5vmax;
+}
+#menu{
+    width: 1.6vmax;
+}
+#underHrHead{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+#underLeft{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 3.4vmax;
+}
+#ulL{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 8vmax;
+}
+#ulL>span{
+    font-family: 'Lato-Black';
+    font-size: 1.2vmax;
+}
+#middle{
+    height: 3.4vmax;
+    width: 0.1vmax;
+    border: transparent;
+    background-color: #D9D9D9;
+}
+#ulR{
+    /* background-color: dodgerblue; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 8vmax;
+}
+#ulR>input{
+    font-family: 'Lato-Reg';
+    color: #939699;
+    font-size: 1.2vmax;
+    font-weight: 100;
+}
+.text{
+    display: flex;
+    flex-direction: column;
+    justify-self: start;
+    align-self: start;
+    width: 50vmax;
+    margin-left: -9.1vmax;
+    border-radius: 0;
+    border: transparent;
+    height: 100%;
+}
+#text{
+    color: #939699;
+    padding-left: 5vmax;
+    font-family: 'Lato-Reg';
+    width: 65vmax;
+    font-size: 1.2vmax;
+    font-weight: 100;
+}
+#searchImg{
+    width: 1.4vmax;
+}
+#underRight{
+    display: flex;
+    justify-content: space-evenly;
+    width: 9vmax;
+    align-items: center;
+}
+#underRight>span, #logIn{
+    font-family: 'Lato-Reg';
+    font-size: 1.2vmax;
+    color: #939699;
+    text-decoration: none;
+}
+#logIn:hover{
+    text-decoration: underline;
+}
+#manImg{
+    width: 1.2vmax;
+}
+#hrHead{
+    align-self: center;
+    width: 85vmax;
+    height: 0.1vmax;
+    background-color: #D9D9D9;
+    border: transparent;
+}
+
+#titleNWeather{
+    display: flex;
+    justify-content: flex-end;
+    align-self: center;
+    width: 85%;
+    height: 5vmax;
+}
+#inTitle{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 56vmax;
+    color: #262D33;
+}
+.headerHead{
+    font-family: 'Lato-Black';
+    color: #262D33;
+    font-size: 2.5vmax;
+    text-decoration: none;
+}
+#dayNWeather{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 24vmax;
+    color: #4B5157;
+    font-family: "Lato-Reg";
+    font-size: 1.2vmax;
+}
+
+#weather{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 5vmax;
+}
+
+nav{
+    width: 100%;
+    height: 3.4vmax;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #262D33;
+}
+nav>div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+    text-transform: uppercase;
+    width: 85vmax;
+}
+nav>div>a{
+    color: white;
+    font-family: 'Lato-Black';
+    font-size: 1vmax;
+    text-decoration: transparent;
+}
+nav>div>a:hover{
+    text-shadow: 0.1vmax 0.1vmax 1vmax #939699;
+}
+
+#headerTxt{
+    width: 21vmax;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 1.6vmax;
+    height: 5vmax;
+    color: #262D33;
+    font-family: 'Lato-Black';
+}
+form{
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+    width: 85vmax;
+}
+form>input{
+    width: 20vmax;
+    border-radius: 0.3vmax;
+    font-family: 'Lato-Reg';
+}
+form>label{
+    font-family:  'Lato-Black';
+    padding: 1vmax 0;
+    font-size: 1.2vmax;
+    color: #262D33;
+}
+#contentPost{
+    border-radius: 0.3vmax;
+    width: 30vmax;
+    height: 7vmax;
+    padding: 1vmax;
+    resize: horizontal;
+}
+#categoryId{
+    width: 15vmax;
+    border-radius: 0.3vmax;
+    padding-left: 1vmax;
+    height: 2vmax;
+    font-family: 'Lato-Reg';
+}
+#titlePost{
+    border-radius: 0.3vmax;
+    height: 2vmax;
+    padding-left: 1vmax;
+}
+#submitBtn{
+    height: 2.4vmax;
+    width: 12vmax;
+}
+
+
+#weNews{
+    font-family: 'Lato-Black';
+    line-height: 250%;
+    font-size: 2vmax;
+    color: #262D33;
+}
+#allNews{
+    align-self: center;
+    width: 85vmax;
+}
+table{
+    border: 0.05vmax solid #262D33;
+    align-self: center;
+    width: 100%;
+}
+#headTable{
+    line-height: 200%;
+}
+#headTable>td{
+    border-bottom: 0.05vmax solid #262D33;
+    font-size: 1.2vmax;
+    font-family: 'Lato-Italic';
+    text-align: center;
+}
+td{
+    border-right:  0.1vmax solid #262D33 ;
+    border-bottom: 0.05vmax solid #4B5157;
+    height: 2vmax;
+    font-family: 'Lato-Reg';
+    font-size: 1vmax;
+    padding-left: 2vmax;
+}
+#last{
+    border-right: transparent;
+}
+table:last-child{
+    border-bottom: transparent;
+}
+img{
+    width: 10vmax;
+}
+
+#weatherImg{
+    width: 1.2vmax;
+}
+body{
+    display: flex;
+    align-items: center;
+}
+main{
+    width: 85vmax;
+}
+.card{
+    font-family: 'Lato-Reg';
+    font-size: 0.8vmax;
+    text-decoration: none;
+}
+.void{
+    width: 100%;
+    height: 2vmax;
+}
+.void2{
+    width: 100%;
+    height: 4vmax;
+}
+#preview{
+    width: 10vmax;
+}
+#parentCreate{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+#createNews{
+    width: 3vmax;
+}
+.containermt{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 50vmax;
+    height: 17vmax;
+}
+.containermt>h1{
+    font-family: 'Lato-Black';
+    color: #262D33;
+}
+.formAuth{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-self: center;
+    width: 100%;
+    height: 12vmax;
+    font-family: 'Lato-Reg';
+}
+#forButtons{
+    display: flex;
+    flex-direction: row;
+    align-self: flex-end;
+    justify-content: space-between;
+}
+.form-control{
+    padding-left: 1vmax;
+    height: 3vmax;
+    width: 49vmax;
+}
+.back{
+    width: 60vmax;
+    color: #262D33;
+}
+.btn-success, .btnNo{
+    height: 3vmax;
+    font-family: 'Lato-Reg';
+    padding: 0 1vmax;
+    color:#D9D9D9;
+    text-decoration: none;
+    border: transparent;
+    background-color: #262D33;
+    border-radius: 0.2vmax;
+}
+.btn-success:hover, .btnNo:hover{
+    background-color: #939699;
+    color: #262D33;
+}
+#highCont{
+    height: 25vmax;
+}
+#highForm{
+    height:20vmax;
+}
+
+#notNews{
+    font-family: 'Lato-Black';
+    font-size: 1.4vmax;
+    line-height: 400%;
+}
+
+#formSort{
+    display: flex;
+    flex-direction: row;
+}
+#orderInput{
+    width: 4vmax;
+    height: 2vmax;
+}
+#sortHead{
+    color: #262D33;
+    width: 85%;
+    line-height: 200%;
+    font-family: 'Lato-Reg';
+    font-size: 1.2vmax;
+}
+#sort-select{
+    width: 20vmax;
+    height: 2vmax;
+    border-radius: 0.2vmax;
+    padding-left: 0.5vmax;
+    font-family: 'Lato-Reg';
+    font-size: 0.8vmax;
+}
+
+.sortImg{
+    width: 2vmax;
+}
+.sortDate{
+    display: flex;
+    flex-direction: row;
+    width: 15vmax;
+    justify-content: space-between;
+    /* background-color: darkblue; */
+}
+.sortDate>li{
+    list-style: none
+}
+
